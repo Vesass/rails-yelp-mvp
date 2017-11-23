@@ -1,0 +1,38 @@
+<div class="banner" style="background-image: url('https://img00.deviantart.net/186a/i/2017/138/a/7/overwatch_anniversary_gold_logo__darker__by_al_proto-db9ln8y.png');">
+  <div class="banner-content">
+    <div class="haut">
+      <h1>My list of restaurants</h1>
+        <a class="btn btn-primary btn-lg"><%= link_to "nouveau restaurant", new_restaurant_path %></a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-xs-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://download.gamezone.com/uploads/image/data/1221633/article_post_width_Overwatch-Logo-1-990x556.jpg');">>
+            <h2><div class="card-description"><%= restaurant.name %></div></h2>
+            <p><div class="card-category"><%= restaurant.address %></div></p>
+            <p><%= restaurant.category %></p>
+            <p><%= restaurant.phone_number %></p>
+             <%= link_to restaurant.name, restaurant_path(restaurant) %>
+             <%= link_to "Delete", restaurant_path(restaurant),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Le Wagon Shanghai</h2>
+    <p>Very cool city, the best</p>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+</div>
+ -->
